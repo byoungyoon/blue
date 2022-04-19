@@ -6,8 +6,14 @@ import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import { TextField } from '@mui/material';
 import styled from 'styled-components';
 import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
+import { PlayerType } from '../../types/Player.type';
+import { playerInsert } from '../../util/store/Player.reducer';
+import { dialogClose } from '../../util/store/Dialog.reducer';
 
 const DialogForm = () => {
+  const dispatch = useDispatch();
+
   const validationSchema = yup.object({
     player1: yup
       .string()
@@ -16,6 +22,7 @@ const DialogForm = () => {
       .test('', ErrorMessageConstants.PLAYER_VALID_FAILURE, (value) => CustomRegex(value, 1)),
     player2: yup
       .string()
+      .required(ErrorMessageConstants.PLAYER2_REQUIRED)
       .max(20, ErrorMessageConstants.PLAYER_VALID_FAILURE)
       .test('', ErrorMessageConstants.PLAYER_VALID_FAILURE, (value) => CustomRegex(value, 1)),
     player3: yup
@@ -37,7 +44,18 @@ const DialogForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      Object.values(values).map((value, index) => {
+        if (value === '') return;
+
+        let result: PlayerType = {
+          key: index + 1,
+          name: value,
+          point: 0,
+        };
+
+        dispatch(playerInsert(result));
+      });
+      dispatch(dialogClose());
     },
   });
 

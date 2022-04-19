@@ -22,9 +22,9 @@ const initState: DialogType = {
 const DialogReducer = (state: DialogType = initState, action: DialogAction) => {
   switch (action.type) {
     case DIALOG_OPEN:
-      return { isOpen: true };
+      return { isOpen: action.payload.open };
     case DIALOG_CLOSE:
-      return { isOpen: false };
+      return { isOpen: action.payload.open };
     default:
       return state;
   }
