@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import Area from '../common/Area';
+import Dice from '../common/Dice';
 
 const Board = () => {
   return (
     <Container>
       <Box>
         <Inner>
-          <InSide></InSide>
+          <InSide>
+            <Dice />
+          </InSide>
           <OutSide>
             <div className="leftLine">
               <div className="area">
@@ -152,7 +155,7 @@ const InSide = styled.div`
   width: 70%;
   height: 70%;
   background-color: purple;
-  position: absolute;
+  position: relative;
   top: 15%;
   left: 15%;
 `;
