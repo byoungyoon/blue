@@ -1,11 +1,7 @@
 import styled from 'styled-components';
-import Dice from '../common/Dice';
 import Area from '../common/Area';
-import { useEffect } from 'react';
 
 const Board = () => {
-  useEffect(() => {}, []);
-
   return (
     <Container>
       <Box>

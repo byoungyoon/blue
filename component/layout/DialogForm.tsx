@@ -51,9 +51,10 @@ const DialogForm = () => {
           key: index + 1,
           name: value,
           point: 0,
+          status: true,
         };
 
-        dispatch(playerInsert(result));
+        dispatch(playerInsert(result, `player${index + 1}`));
       });
       dispatch(dialogClose());
     },
