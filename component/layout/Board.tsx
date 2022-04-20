@@ -130,7 +130,6 @@ const Container = styled.div`
   height: 800px;
 
   transform: perspective(500px) rotateX(12deg);
-  auto: 0;
 `;
 
 const Box = styled.div`
@@ -154,7 +153,7 @@ const Inner = styled.div`
 const InSide = styled.div`
   width: 70%;
   height: 70%;
-  background-color: purple;
+  background-color: gray;
   position: relative;
   top: 15%;
   left: 15%;

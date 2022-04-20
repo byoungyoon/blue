@@ -8,8 +8,7 @@ const Area = ({ position }: AreaProps) => {
   return (
     <Container>
       <Solid>
-        <div className="face front">1</div>
-        {/*<div className="face back">2</div>*/}
+        1{/*<div className="face back">2</div>*/}
         {/*<div className="face left">3</div>*/}
         {/*<div className="face right">4</div>*/}
         {/*<div className="face top">5</div>*/}
