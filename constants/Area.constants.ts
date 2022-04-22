@@ -1,0 +1,272 @@
+import { AreaType } from '../types/Area.type';
+
+export const AreaTypeConstants = {
+  COUNTRY: '일반 구역',
+  COUNTRY_LAND: '관광지',
+  CARD: '황금 열쇠',
+  SPECIAL: '특별 구역',
+};
+
+export const AreaNameConstants = {
+  TAIPEL: '타이베이',
+  BEIJING: '베이징',
+  MANILA: '마닐라',
+  JEJU: '제주도',
+  SINGAPURA: '싱가포르',
+  CAIRO: '카이로',
+  ISTANBUL: '이스탄불',
+  ATHENS: '아테네',
+  COPENHAGEN: '코펜하겐',
+  STOCKHOLM: '스톡홀름',
+  CONCORDE: '콩코드 여객기',
+  BERNE: '베른',
+  BERLIN: '베를린',
+  OTTAWA: '오타와',
+  BUENOS_AIRES: '부에노스 아이레스',
+  SAOPAULO: '상파올루',
+  SYDNEY: '시드니',
+  BUSAN: '부산',
+  HAWAII: '하와이',
+  LISBOA: '리스본',
+  QUEEN_ELIZABETH: '퀸 엘리자베스 호',
+  MADRID: '마드리드',
+  TOKYO: '도쿄',
+  COLUMBIA_REDIVIVA: '컬럼비아호',
+  PARIS: '파리',
+  ROMA: '로마',
+  LONDON: '런던',
+  NEW_YORK: '뉴욕',
+  SEOUL: '서울',
+  CARD: '황금열쇠',
+  SPECIAL: '특별 구역',
+};
+
+export const AreaConstants: AreaType = {
+  1: {
+    1: {
+      name: AreaNameConstants.TAIPEL,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 5, e2: 5, e3: 15, e4: 25 },
+      pay: { e1: 0.2, e2: 1, e3: 9, e4: 25 },
+    },
+    2: {
+      name: AreaNameConstants.CARD,
+      type: AreaTypeConstants.CARD,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    3: {
+      name: AreaNameConstants.BEIJING,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 8, e2: 5, e3: 15, e4: 25 },
+      pay: { e1: 0.4, e2: 2, e3: 18, e4: 45 },
+    },
+    4: {
+      name: AreaNameConstants.MANILA,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 8, e2: 5, e3: 15, e4: 25 },
+      pay: { e1: 0.4, e2: 2, e3: 18, e4: 45 },
+    },
+    5: {
+      name: AreaNameConstants.JEJU,
+      type: AreaTypeConstants.COUNTRY_LAND,
+      price: { e1: 20, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 30, e2: 0, e3: 0, e4: 0 },
+    },
+    6: {
+      name: AreaNameConstants.SINGAPURA,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 10, e2: 5, e3: 15, e4: 25 },
+      pay: { e1: 0.6, e2: 3, e3: 27, e4: 55 },
+    },
+    7: {
+      name: AreaNameConstants.CARD,
+      type: AreaTypeConstants.CARD,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    8: {
+      name: AreaNameConstants.CAIRO,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 10, e2: 5, e3: 15, e4: 25 },
+      pay: { e1: 0.6, e2: 3, e3: 27, e4: 55 },
+    },
+    9: {
+      name: AreaNameConstants.ISTANBUL,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 12, e2: 5, e3: 15, e4: 25 },
+      pay: { e1: 0.8, e2: 4, e3: 30, e4: 60 },
+    },
+  },
+
+  2: {
+    1: {
+      name: AreaNameConstants.ATHENS,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 14, e2: 10, e3: 30, e4: 50 },
+      pay: { e1: 1, e2: 5.15, e3: 45, e4: 75 },
+    },
+    2: {
+      name: AreaNameConstants.CARD,
+      type: AreaTypeConstants.CARD,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    3: {
+      name: AreaNameConstants.COPENHAGEN,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 16, e2: 10, e3: 30, e4: 50 },
+      pay: { e1: 1.2, e2: 6.18, e3: 50, e4: 90 },
+    },
+    4: {
+      name: AreaNameConstants.STOCKHOLM,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 16, e2: 10, e3: 30, e4: 50 },
+      pay: { e1: 1.2, e2: 6.18, e3: 50, e4: 90 },
+    },
+    5: {
+      name: AreaNameConstants.CONCORDE,
+      type: AreaTypeConstants.COUNTRY_LAND,
+      price: { e1: 20, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 30, e2: 0, e3: 0, e4: 0 },
+    },
+    6: {
+      name: AreaNameConstants.BERNE,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 18, e2: 10, e3: 30, e4: 50 },
+      pay: { e1: 1.4, e2: 7.2, e3: 55, e4: 95 },
+    },
+    7: {
+      name: AreaNameConstants.CARD,
+      type: AreaTypeConstants.CARD,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    8: {
+      name: AreaNameConstants.BERLIN,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 16, e2: 10, e3: 30, e4: 50 },
+      pay: { e1: 1.2, e2: 6.18, e3: 50, e4: 90 },
+    },
+    9: {
+      name: AreaNameConstants.OTTAWA,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 20, e2: 10, e3: 30, e4: 50 },
+      pay: { e1: 1.6, e2: 8.22, e3: 60, e4: 100 },
+    },
+  },
+
+  3: {
+    1: {
+      name: AreaNameConstants.BUENOS_AIRES,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 22, e2: 15, e3: 40, e4: 75 },
+      pay: { e1: 1.8, e2: 9.25, e3: 70, e4: 105 },
+    },
+    2: {
+      name: AreaNameConstants.CARD,
+      type: AreaTypeConstants.CARD,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    3: {
+      name: AreaNameConstants.SAOPAULO,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 24, e2: 15, e3: 45, e4: 75 },
+      pay: { e1: 2, e2: 10.3, e3: 75, e4: 110 },
+    },
+    4: {
+      name: AreaNameConstants.SYDNEY,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 24, e2: 15, e3: 45, e4: 75 },
+      pay: { e1: 2, e2: 10.3, e3: 75, e4: 110 },
+    },
+    5: {
+      name: AreaNameConstants.BUSAN,
+      type: AreaTypeConstants.COUNTRY_LAND,
+      price: { e1: 50, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 60, e2: 0, e3: 0, e4: 0 },
+    },
+    6: {
+      name: AreaNameConstants.HAWAII,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 26, e2: 15, e3: 45, e4: 75 },
+      pay: { e1: 2.2, e2: 11.33, e3: 80, e4: 115 },
+    },
+    7: {
+      name: AreaNameConstants.LISBOA,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 26, e2: 15, e3: 45, e4: 75 },
+      pay: { e1: 2.2, e2: 11.33, e3: 80, e4: 115 },
+    },
+    8: {
+      name: AreaNameConstants.QUEEN_ELIZABETH,
+      type: AreaTypeConstants.COUNTRY_LAND,
+      price: { e1: 30, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 25, e2: 0, e3: 0, e4: 0 },
+    },
+    9: {
+      name: AreaNameConstants.MADRID,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 28, e2: 15, e3: 45, e4: 75 },
+      pay: { e1: 2.4, e2: 12.36, e3: 85, e4: 120 },
+    },
+  },
+
+  4: {
+    1: {
+      name: AreaNameConstants.TOKYO,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 30, e2: 20, e3: 60, e4: 100 },
+      pay: { e1: 2.6, e2: 13.39, e3: 90, e4: 127 },
+    },
+    2: {
+      name: AreaNameConstants.COLUMBIA_REDIVIVA,
+      type: AreaTypeConstants.COUNTRY_LAND,
+      price: { e1: 45, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 30, e2: 0, e3: 0, e4: 0 },
+    },
+    3: {
+      name: AreaNameConstants.PARIS,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 32, e2: 20, e3: 60, e4: 100 },
+      pay: { e1: 2.8, e2: 15.45, e3: 100, e4: 140 },
+    },
+    4: {
+      name: AreaNameConstants.ROMA,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 32, e2: 20, e3: 60, e4: 100 },
+      pay: { e1: 2.8, e2: 15.45, e3: 100, e4: 140 },
+    },
+    5: {
+      name: AreaNameConstants.CARD,
+      type: AreaTypeConstants.CARD,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    6: {
+      name: AreaNameConstants.LONDON,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 35, e2: 20, e3: 60, e4: 100 },
+      pay: { e1: 3.5, e2: 17.5, e3: 110, e4: 150 },
+    },
+    7: {
+      name: AreaNameConstants.NEW_YORK,
+      type: AreaTypeConstants.COUNTRY,
+      price: { e1: 35, e2: 20, e3: 60, e4: 100 },
+      pay: { e1: 3.5, e2: 17.5, e3: 110, e4: 150 },
+    },
+    8: {
+      name: AreaNameConstants.SPECIAL,
+      type: AreaTypeConstants.SPECIAL,
+      price: { e1: 0, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 0, e2: 0, e3: 0, e4: 0 },
+    },
+    9: {
+      name: AreaNameConstants.SEOUL,
+      type: AreaTypeConstants.COUNTRY_LAND,
+      price: { e1: 100, e2: 0, e3: 0, e4: 0 },
+      pay: { e1: 200, e2: 0, e3: 0, e4: 0 },
+    },
+  },
+};
