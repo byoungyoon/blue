@@ -1,123 +1,136 @@
 import styled from 'styled-components';
-import Area from '../common/Area';
 import Dice from '../common/Dice';
+import { useState } from 'react';
 
 const Board = () => {
+  const [roll, setRoll] = useState(false);
+
+  const onRoll = () => {
+    setRoll(true);
+
+    setTimeout(() => {
+      setRoll(false);
+    }, 3000);
+  };
+
   return (
     <Container>
       <Box>
         <Inner>
           <InSide>
-            <Dice />
+            <Dice roll={roll} />
           </InSide>
           <OutSide>
-            <div className="leftLine">
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-            </div>
+            <button type="button" onClick={onRoll}>
+              test
+            </button>
+            {/*<div className="leftLine">*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
-            <div className="rightLine">
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-            </div>
+            {/*<div className="rightLine">*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
-            <div className="topLine">
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-            </div>
+            {/*<div className="topLine">*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*</div>*/}
 
-            <div className="bottomLine">
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-              <div className="area">
-                <Area />
-              </div>
-            </div>
+            {/*<div className="bottomLine">*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*  <div className="area">*/}
+            {/*    <Area />*/}
+            {/*  </div>*/}
+            {/*</div>*/}
           </OutSide>
         </Inner>
       </Box>

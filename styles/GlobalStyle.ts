@@ -12,11 +12,12 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Inter', sans-serif;
     font-weight: 300;
     white-space: pre;
-
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-image: url('${bg.src}');
+    
+    background-color: black;
+    // background-size: 100% 100%;
+    // background-repeat: no-repeat;
+    // background-position: center;
+    // background-image: url('${bg.src}');
     
     overflow: hidden;
   }

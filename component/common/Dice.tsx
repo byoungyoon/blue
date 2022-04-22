@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import one from '../../public/image/one.jpeg';
 import two from '../../public/image/two.png';
 import three from '../../public/image/three.png';
@@ -7,127 +7,107 @@ import five from '../../public/image/five.png';
 import six from '../../public/image/six.png';
 import { useEffect, useState } from 'react';
 import { getRandom, getRandomNum } from '../../util/common/Random.util';
+import { DiceProps, DiceType, RollType } from '../../types/Dice.type';
 
-const Dice = () => {
+const onKeyFrames = (reverse: number = 1) => {
+  let result: DiceType = {
+    tx: 0,
+    ty: 0,
+    rx: 0,
+    ry: 0,
+  };
+
+  const random = {
+    x: getRandom(50, 170),
+    y: getRandom(50, 400),
+    num: getRandomNum(1, 6),
+  };
+
+  result = { ...result, tx: random.x * reverse, ty: random.y * reverse };
+
+  const standard = 180 * reverse;
+  switch (random.num) {
+    case 1:
+      result = { ...result, rx: standard * -1, ry: standard };
+      break;
+    case 2:
+      result = { ...result, rx: (standard + 90) * -1, ry: standard };
+      break;
+    case 3:
+      result = { ...result, rx: standard * -1, ry: standard - 90 };
+      break;
+    case 4:
+      result = { ...result, rx: standard * -1, ry: standard + 90 };
+      break;
+    case 5:
+      result = { ...result, rx: (standard - 90) * -1, ry: standard };
+      break;
+    case 6:
+      result = { ...result, rx: standard * 2 * -1, ry: standard };
+      break;
+    default:
+      break;
+  }
+
+  return result;
+};
+
+const Dice = ({ roll }: DiceProps) => {
   const [index, setIndex] = useState({
-    x1: 0,
-    y1: 0,
-    num1: 0,
-    x2: 0,
-    y2: 0,
-    num2: 0,
-  });
+    dice1: { tx: 0, ty: 0, rx: 0, ry: 0 },
+    dice2: { tx: 0, ty: 0, rx: 0, ry: 0 },
+  } as RollType);
 
   useEffect(() => {
     setIndex({
-      x1: getRandom(50, 170),
-      y1: getRandom(50, 448),
-      num1: getRandomNum(1, 6),
-      x2: getRandom(50, 170),
-      y2: getRandom(50, 448),
-      num2: getRandomNum(1, 6),
+      dice1: onKeyFrames(),
+      dice2: onKeyFrames(-1),
     });
-  }, []);
-  console.log(index);
+  }, [roll]);
 
   return (
     <>
-      <Container x1={index.x1} y1={index.y1} num1={index.num1} x2={index.x2} y2={index.y2} num2={index.num2}>
-        <Dice1>
-          <div className="top" />
-          <div className="left" />
-          <div className="front" />
-          <div className="back" />
-          <div className="right" />
-          <div className="bottom" />
-        </Dice1>
-        <Dice2>
-          <div className="top" />
-          <div className="left" />
-          <div className="front" />
-          <div className="back" />
-          <div className="right" />
-          <div className="bottom" />
-        </Dice2>
-      </Container>
+      {roll && (
+        <Container>
+          <Dice1 index={index.dice1}>
+            <div className="top" />
+            <div className="left" />
+            <div className="front" />
+            <div className="back" />
+            <div className="right" />
+            <div className="bottom" />
+          </Dice1>
+          <Dice2 index={index.dice2}>
+            <div className="top" />
+            <div className="left" />
+            <div className="front" />
+            <div className="back" />
+            <div className="right" />
+            <div className="bottom" />
+          </Dice2>
+        </Container>
+      )}
     </>
   );
 };
 
-const Container = styled.div<{ x1: number; y1: number; num1: number; x2: number; y2: number; num2: number }>`
-  width: 100%; // 448px
-  height: 100%;
-
-  @keyframes rotate {
-    100% {
-      transform: ${(props) => {
-        let result = `translate(${props.x1}px, ${props.y1}px) rotateZ(70deg) `;
-        switch (props.num1) {
-          case 1:
-            result += `rotateY(180deg) rotateX(-180deg)`;
-            break;
-          case 2:
-            result += `rotateY(180deg) rotateX(-270deg)`;
-            break;
-          case 3:
-            result += `rotateY(90deg) rotateX(-180deg)`;
-            break;
-          case 4:
-            result += `rotateY(270deg) rotateX(-180deg)`;
-            break;
-          case 5:
-            result += `rotateY(180deg) rotateX(-90deg)`;
-            break;
-          case 6:
-            result += `rotateY(180deg) rotateX(-360deg)`;
-            break;
-          default:
-            break;
-        }
-        return result;
-      }};
-    }
-  }
-
-  @keyframes rotate2 {
-    100% {
-      transform: ${(props) => {
-        let result = `translate(-${props.x2}px, -${props.y2}px) rotateZ(70deg) `;
-        switch (props.num2) {
-          case 1:
-            result += `rotateY(-180deg) rotateX(180deg)`;
-            break;
-          case 2:
-            result += `rotateY(-180deg) rotateX(90deg)`;
-            break;
-          case 3:
-            result += `rotateY(-270deg) rotateX(180deg)`;
-            break;
-          case 4:
-            result += `rotateY(-90deg) rotateX(180deg)`;
-            break;
-          case 5:
-            result += `rotateY(-180deg) rotateX(270deg)`;
-            break;
-          case 6:
-            result += `rotateY(-180deg) rotateX(360deg)`;
-            break;
-          default:
-            break;
-        }
-        return result;
-      }};
-    }
+const rotate = ({ tx, ty, rx, ry }: DiceType) => keyframes`
+  100% {
+    transform: translate(${tx}px, ${ty}px) rotateZ(70deg) rotateX(${rx}deg) rotateY(${ry}deg);
   }
 `;
 
-const DiceWap = styled.div`
+const Container = styled.div`
+  width: 100%; // 448px
+  height: 100%;
+`;
+
+const DiceWap = styled.div<{ index: DiceType }>`
   transform-style: preserve-3d;
   width: 60px;
   height: 60px;
 
   z-index: 999;
-
   position: absolute;
 
   & > div {
@@ -174,16 +154,14 @@ const Dice1 = styled(DiceWap)`
   top: 0px;
   left: 0px;
 
-  animation: rotate 1390ms;
-  animation-fill-mode: forwards;
+  animation: ${(props) => rotate(props.index)} 1390ms forwards;
 `;
 
 const Dice2 = styled(DiceWap)`
   bottom: 0px;
   right: 0px;
 
-  animation: rotate2 1390ms;
-  animation-fill-mode: forwards;
+  animation: ${(props) => rotate(props.index)} 1390ms forwards;
 `;
 
 export default Dice;

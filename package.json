@@ -24,7 +24,7 @@
     "@types/styled-components": "^5.1.24",
     "@types/yup": "^0.29.13",
     "axios": "^0.26.1",
-    "babel-plugin-styled-components": "^2.0.6",
+    "babel-plugin-styled-components": "^2.0.7",
     "bable-loader": "^0.0.1-security",
     "eslint-plugin-import": "^2.26.0",
     "file-loader": "^6.2.0",
