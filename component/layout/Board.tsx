@@ -184,7 +184,7 @@ const OutSide = styled.div`
   & .leftLine {
     position: absolute;
     top: 15%;
-    left: 0%;
+    left: 0;
 
     & > div {
       width: 15%;
@@ -207,7 +207,7 @@ const OutSide = styled.div`
     display: flex;
 
     position: absolute;
-    top: 0%;
+    top: 0;
     left: 15%;
 
     & > div {

@@ -115,8 +115,8 @@ const DiceWap = styled.div<{ index: DiceType }>`
     height: 100%;
 
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -151,15 +151,15 @@ const DiceWap = styled.div<{ index: DiceType }>`
 `;
 
 const Dice1 = styled(DiceWap)`
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
 
   animation: ${(props) => rotate(props.index)} 1390ms forwards;
 `;
 
 const Dice2 = styled(DiceWap)`
-  bottom: 0px;
-  right: 0px;
+  bottom: 0;
+  right: 0;
 
   animation: ${(props) => rotate(props.index)} 1390ms forwards;
 `;

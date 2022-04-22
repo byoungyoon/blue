@@ -1,11 +1,10 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import { Fragment } from 'react';
-import { DialogActions, DialogContent, DialogTitle, IconButton } from '@mui/material';
+import { DialogContent, DialogTitle } from '@mui/material';
 import { CustomDialogProps, CustomDialogTitleProps } from '../../types/Dialog.type';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../util/store';
 
 const CustomDialogTitle = (props: CustomDialogTitleProps) => {
