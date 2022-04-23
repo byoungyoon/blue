@@ -104,6 +104,7 @@ const Container = styled.div`
 
 const DiceWap = styled.div<{ index: DiceType }>`
   transform-style: preserve-3d;
+  animation: ${(props) => rotate(props.index)} 1390ms forwards;
   width: 60px;
   height: 60px;
 
@@ -125,27 +126,27 @@ const DiceWap = styled.div<{ index: DiceType }>`
   }
 
   & .top {
-    transform: translateZ(30px);
+    transform: rotateX(-10deg) translateZ(30px);
     background-image: url('${one.src}');
   }
   & .bottom {
-    transform: translateZ(-30px);
+    transform: rotateX(-10deg) translateZ(-30px);
     background-image: url('${six.src}');
   }
   & .left {
-    transform: translateY(-30px) rotateX(90deg);
+    transform: rotateX(-10deg) translateY(-30px) rotateX(90deg);
     background-image: url('${two.src}');
   }
   & .right {
-    transform: translateY(30px) rotateX(90deg);
+    transform: rotateX(-10deg) translateY(30px) rotateX(90deg);
     background-image: url('${five.src}');
   }
   & .front {
-    transform: translateX(-30px) rotateY(90deg);
+    transform: rotateX(-10deg) translateX(-30px) rotateY(90deg);
     background-image: url('${three.src}');
   }
   & .back {
-    transform: translateX(30px) rotateY(90deg);
+    transform: rotateX(-10deg) translateX(30px) rotateY(90deg);
     background-image: url('${four.src}');
   }
 `;
@@ -153,15 +154,11 @@ const DiceWap = styled.div<{ index: DiceType }>`
 const Dice1 = styled(DiceWap)`
   top: 0;
   left: 0;
-
-  animation: ${(props) => rotate(props.index)} 1390ms forwards;
 `;
 
 const Dice2 = styled(DiceWap)`
   bottom: 0;
   right: 0;
-
-  animation: ${(props) => rotate(props.index)} 1390ms forwards;
 `;
 
 export default Dice;

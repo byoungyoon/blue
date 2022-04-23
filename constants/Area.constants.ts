@@ -5,6 +5,7 @@ export const AreaTypeConstants = {
   COUNTRY_LAND: '관광지',
   CARD: '황금 열쇠',
   SPECIAL: '특별 구역',
+  EDGE: '모서리 구역',
 };
 
 export const AreaNameConstants = {
@@ -18,31 +19,35 @@ export const AreaNameConstants = {
   ATHENS: '아테네',
   COPENHAGEN: '코펜하겐',
   STOCKHOLM: '스톡홀름',
-  CONCORDE: '콩코드 여객기',
+  CONCORDE: '콩코드\n여객기',
   BERNE: '베른',
   BERLIN: '베를린',
   OTTAWA: '오타와',
-  BUENOS_AIRES: '부에노스 아이레스',
+  BUENOS_AIRES: '부에노스\n아이레스',
   SAOPAULO: '상파올루',
   SYDNEY: '시드니',
   BUSAN: '부산',
   HAWAII: '하와이',
   LISBOA: '리스본',
-  QUEEN_ELIZABETH: '퀸 엘리자베스 호',
+  QUEEN_ELIZABETH: '퀸엘리호',
   MADRID: '마드리드',
   TOKYO: '도쿄',
-  COLUMBIA_REDIVIVA: '컬럼비아호',
+  COLUMBIA_REDIVIVA: '컬럼\n비아호',
   PARIS: '파리',
   ROMA: '로마',
   LONDON: '런던',
   NEW_YORK: '뉴욕',
   SEOUL: '서울',
   CARD: '황금열쇠',
-  SPECIAL: '특별 구역',
+  SPECIAL: '모금',
+  START: '시작',
+  UNINHABITED_ISLAND: '무인도',
+  SOCIAL_WELFARE: '사회복지기금',
+  SPACE_TRAVEL: '우주여행',
 };
 
 export const AreaConstants: AreaType = {
-  1: {
+  bottom: {
     1: {
       name: AreaNameConstants.TAIPEL,
       type: AreaTypeConstants.COUNTRY,
@@ -99,7 +104,7 @@ export const AreaConstants: AreaType = {
     },
   },
 
-  2: {
+  left: {
     1: {
       name: AreaNameConstants.ATHENS,
       type: AreaTypeConstants.COUNTRY,
@@ -156,7 +161,7 @@ export const AreaConstants: AreaType = {
     },
   },
 
-  3: {
+  top: {
     1: {
       name: AreaNameConstants.BUENOS_AIRES,
       type: AreaTypeConstants.COUNTRY,
@@ -213,7 +218,7 @@ export const AreaConstants: AreaType = {
     },
   },
 
-  4: {
+  right: {
     1: {
       name: AreaNameConstants.TOKYO,
       type: AreaTypeConstants.COUNTRY,

@@ -1,9 +1,9 @@
 export type AreaType = {
-  [key: number]: AreaIndexType;
+  [key: string]: AreaIndexType;
 };
 
 export type AreaIndexType = {
-  [key: number]: AreaDetailType;
+  [key: string]: AreaDetailType;
 };
 
 /*

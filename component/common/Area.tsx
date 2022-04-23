@@ -1,89 +1,69 @@
 import styled from 'styled-components';
+import { AreaDetailType } from '../../types/Area.type';
+import KeyIcon from '@mui/icons-material/Key';
+import { AreaTypeConstants } from '../../constants/Area.constants';
+import { yellow } from '@mui/material/colors';
 
 interface AreaProps {
-  position?: string;
+  AreaData: AreaDetailType;
 }
 
-const Area = ({ position }: AreaProps) => {
+const Area = ({ AreaData }: AreaProps) => {
+  const onNameBr = () => {};
+
   return (
-    <Container>
-      <Solid>
-        1{/*<div className="face back">2</div>*/}
-        {/*<div className="face left">3</div>*/}
-        {/*<div className="face right">4</div>*/}
-        {/*<div className="face top">5</div>*/}
-        {/*<div className="face bottom">6</div>*/}
-      </Solid>
+    <Container type={AreaData.type}>
+      <Header></Header>
+      <Title>
+        {AreaData.type !== AreaTypeConstants.CARD ? AreaData.name : <KeyIcon sx={{ color: yellow[800] }} />}
+      </Title>
     </Container>
   );
 };
 
-const Container = styled.div`
+const handleColorType = (type: string) => {
+  switch (type) {
+    case AreaTypeConstants.CARD:
+      return 'radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255,255,255,0.50) 47%, rgba(0,0,0,0.50) 100%)';
+      break;
+    case AreaTypeConstants.COUNTRY_LAND:
+      return 'linear-gradient(to top, #cd9cf2 0%, #f6f3ff 100%)';
+      break;
+    case AreaTypeConstants.SPECIAL:
+      return 'linear-gradient(to top, #c1dfc4 0%, #deecdd 100%)';
+    default:
+      break;
+  }
+
+  return 'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)';
+};
+
+const Container = styled.div<{ type: string }>`
   width: 100%;
   height: 100%;
 
-  //transform-style: preserve-3d;
-  //opacity: 0.8;
-  background-color: palegreen;
-  border: 1px solid darkblue;
+  background-image: ${(props) => handleColorType(props.type)};
 
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
-const Solid = styled.div`
-  & .face {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+const Header = styled.div`
+  width: 100%;
+  height: 30%;
 
-  & .front {
-    //width: 100%;
-    //height: 100%;
-    //
-    //background-color: #222;
-    //transform: perspective(300px) translateZ(50px);
-  }
+  /* border-bottom: 1px solid white; */
+`;
 
-  & .back {
-    width: 100%;
-    height: 100%;
+const Title = styled.div`
+  position: absolute;
+  bottom: 15%;
 
-    background-color: #333;
-    transform: perspective(300px) rotateY(180deg);
-  }
-
-  & .left {
-    width: 20px;
-    height: 100%;
-
-    background-color: green;
-    transform: perspective(300px) translateX(-50%) translateZ(50px) rotateY(80deg);
-  }
-
-  //& .right {
-  //  background-color: #555;
-  //  transform: perspective(300px) rotateY(90deg) translateX(500px) translateZ(10px);
-  //
-  //  width: 500px;
-  //  height: 100%;
-  //}
-  //
-  //& .top {
-  //  background-color: skyblue;
-  //  transform: perspective(300px) translateY(-50%) translateZ(10px) rotateX(90deg);
-  //
-  //  width: 100%;
-  //  height: 20px;
-  //}
-  //
-  //& .bottom {
-  //  background-color: #777;
-  //  transform: perspective(300px) translateY(50%) translateZ(10px) rotateX(90deg);
-  //
-  //  width: 100%;
-  //  height: 20px;
-  //}
+  font-size: 0.75em;
+  font-weight: 700;
+  color: gray;
 `;
 
 export default Area;
