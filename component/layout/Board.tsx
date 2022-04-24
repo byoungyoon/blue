@@ -3,6 +3,7 @@ import Dice from '../common/Dice';
 import { useState } from 'react';
 import AreaForm from './AreaForm';
 import { useDispatch } from 'react-redux';
+import Token from './TokenForm';
 
 const Board = () => {
   const [roll, setRoll] = useState(0);
@@ -25,6 +26,7 @@ const Board = () => {
           <OutSide>
             <AreaForm />
           </OutSide>
+          <Token />
         </Inner>
       </Box>
     </Container>

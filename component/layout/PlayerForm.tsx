@@ -12,16 +12,40 @@ const PlayerForm = () => {
   return (
     <Fix>
       <div className="play1">
-        <Player position="left" color="red" name={player1.name} point={player1.point} status={player1.status} />
+        <Player
+          position="left"
+          color={player1?.color}
+          name={player1.name}
+          point={player1.point}
+          status={player1.status}
+        />
       </div>
       <div className="play2">
-        <Player position="right" color="skyblue" name={player2.name} point={player2.point} status={player2.status} />
+        <Player
+          position="right"
+          color={player2.color}
+          name={player2.name}
+          point={player2.point}
+          status={player2.status}
+        />
       </div>
       <div className="play3">
-        <Player position="left" color="purple" name={player3.name} point={player3.point} status={player3.status} />
+        <Player
+          position="left"
+          color={player3.color}
+          name={player3.name}
+          point={player3.point}
+          status={player3.status}
+        />
       </div>
       <div className="play4">
-        <Player position="right" color="pink" name={player4.name} point={player4.point} status={player4.status} />
+        <Player
+          position="right"
+          color={player4.color}
+          name={player4.name}
+          point={player4.point}
+          status={player4.status}
+        />
       </div>
     </Fix>
   );

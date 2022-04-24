@@ -23,6 +23,7 @@ const initState: PlayerIndexType = {
     name: '',
     status: false,
     index: 0,
+    color: 'red',
   },
   player2: {
     key: 2,
@@ -30,6 +31,7 @@ const initState: PlayerIndexType = {
     name: '',
     status: false,
     index: 0,
+    color: 'skyblue',
   },
   player3: {
     key: 3,
@@ -37,6 +39,7 @@ const initState: PlayerIndexType = {
     name: '',
     status: false,
     index: 0,
+    color: 'purple',
   },
   player4: {
     key: 4,
@@ -44,13 +47,14 @@ const initState: PlayerIndexType = {
     name: '',
     status: false,
     index: 0,
+    color: 'pink',
   },
 };
 
 const PlayerReducer = (state: PlayerIndexType = initState, action: PlayerAction) => {
   switch (action.type) {
     case PLAYER_INSERT:
-      return { ...state, [action.payload.index]: action.payload.value };
+      return { ...state, [action.payload.index]: { ...state[action.payload.index], ...action.payload.value } };
     case PLAYER_UPDATE:
     default:
       return state;

@@ -5,7 +5,7 @@ import three from '../../public/image/three.png';
 import four from '../../public/image/four.png';
 import five from '../../public/image/five.png';
 import six from '../../public/image/six.png';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getRandom, getRandomNum } from '../../util/common/Random.util';
 import { DiceProps, DiceType, RollType } from '../../types/Dice.type';
 import { useDispatch } from 'react-redux';
@@ -79,7 +79,7 @@ const Dice = ({ roll }: DiceProps) => {
 
   const onDiceUpdate = (num1: number, num2: number) => {
     setRollAction(true);
-    dispatch(diceUpdate(num1 + num2));
+    dispatch(diceUpdate(num1 + num2, roll));
 
     setTimeout(() => {
       setRollAction(false);

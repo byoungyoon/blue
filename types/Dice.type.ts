@@ -14,3 +14,8 @@ export type RollType = {
 export interface DiceProps {
   roll: number;
 }
+
+export type DiceStateType = {
+  dice: number;
+  roll: number;
+};

@@ -5,17 +5,17 @@ import { pink } from '@mui/material/colors';
 
 interface PlayerProps {
   position: string;
-  color: string;
   name: string;
   point: number;
   status: boolean;
+  color?: string;
 }
 
 const Player = ({ position, color, name, point, status }: PlayerProps) => {
   return (
     <>
       <Main>
-        <Name position={position} color={color}>
+        <Name position={position} color={color ? color : 'white'}>
           {name}
         </Name>
         <Point position={position}>
