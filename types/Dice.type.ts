@@ -3,6 +3,7 @@ export type DiceType = {
   ty: number;
   rx: number;
   ry: number;
+  num: number;
 };
 
 export type RollType = {
@@ -11,5 +12,5 @@ export type RollType = {
 };
 
 export interface DiceProps {
-  roll: boolean;
+  roll: number;
 }

@@ -1,11 +1,15 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import DialogReducer from './Dialog.reducer';
 import PlayerReducer from './Player.reducer';
+import DiceReducer from './Dice.reducer';
+import TurnReducer from './Turn.reducer';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 const rootReducer = combineReducers({
   DialogReducer,
   PlayerReducer,
+  DiceReducer,
+  TurnReducer,
 });
 
 const reducer = (state: any, action: any) => {

@@ -10,4 +10,5 @@ export type PlayerType = {
   name: string;
   point: number;
   status: boolean;
+  index: number;
 };

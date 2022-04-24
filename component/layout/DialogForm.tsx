@@ -50,8 +50,9 @@ const DialogForm = () => {
         let result: PlayerType = {
           key: index + 1,
           name: value,
-          point: 0,
+          point: 300,
           status: true,
+          index: 0,
         };
 
         dispatch(playerInsert(result, `player${index + 1}`));

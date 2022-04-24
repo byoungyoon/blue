@@ -22,24 +22,28 @@ const initState: PlayerIndexType = {
     point: 0,
     name: '',
     status: false,
+    index: 0,
   },
   player2: {
     key: 2,
     point: 0,
     name: '',
     status: false,
+    index: 0,
   },
   player3: {
-    key: 2,
+    key: 3,
     point: 0,
     name: '',
     status: false,
+    index: 0,
   },
   player4: {
-    key: 2,
+    key: 4,
     point: 0,
     name: '',
     status: false,
+    index: 0,
   },
 };
 

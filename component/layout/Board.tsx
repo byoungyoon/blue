@@ -2,16 +2,14 @@ import styled from 'styled-components';
 import Dice from '../common/Dice';
 import { useState } from 'react';
 import AreaForm from './AreaForm';
+import { useDispatch } from 'react-redux';
 
 const Board = () => {
-  const [roll, setRoll] = useState(false);
+  const [roll, setRoll] = useState(0);
+  const dispatch = useDispatch();
 
   const onRoll = () => {
-    setRoll(true);
-
-    setTimeout(() => {
-      setRoll(false);
-    }, 3000);
+    setRoll(roll + 1);
   };
 
   return (
@@ -20,11 +18,11 @@ const Board = () => {
         <Inner>
           <InSide>
             <Dice roll={roll} />
+            <Button onClick={onRoll}>
+              <div>ROLL</div>
+            </Button>
           </InSide>
           <OutSide>
-            <button type="button" onClick={onRoll}>
-              test
-            </button>
             <AreaForm />
           </OutSide>
         </Inner>
@@ -74,6 +72,30 @@ const OutSide = styled.div`
 
   width: 100%;
   height: 100%;
+`;
+
+const Button = styled.div`
+  position: absolute;
+  left: 10%;
+  bottom: 10%;
+
+  width: 18%;
+  height: 18%;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 998;
+
+  font-weight: 700;
+
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  cursor: pointer;
+
+  & > div {
+    transform: rotate(45deg);
+  }
 `;
 
 export default Board;

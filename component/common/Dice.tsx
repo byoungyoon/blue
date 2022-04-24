@@ -5,9 +5,11 @@ import three from '../../public/image/three.png';
 import four from '../../public/image/four.png';
 import five from '../../public/image/five.png';
 import six from '../../public/image/six.png';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { getRandom, getRandomNum } from '../../util/common/Random.util';
 import { DiceProps, DiceType, RollType } from '../../types/Dice.type';
+import { useDispatch } from 'react-redux';
+import { diceUpdate } from '../../util/store/Dice.reducer';
 
 const onKeyFrames = (reverse: number = 1) => {
   let result: DiceType = {
@@ -15,6 +17,7 @@ const onKeyFrames = (reverse: number = 1) => {
     ty: 0,
     rx: 0,
     ry: 0,
+    num: 0,
   };
 
   const random = {
@@ -23,7 +26,7 @@ const onKeyFrames = (reverse: number = 1) => {
     num: getRandomNum(1, 6),
   };
 
-  result = { ...result, tx: random.x * reverse, ty: random.y * reverse };
+  result = { ...result, tx: random.x * reverse, ty: random.y * reverse, num: random.num };
 
   const standard = 180 * reverse;
   switch (random.num) {
@@ -31,16 +34,16 @@ const onKeyFrames = (reverse: number = 1) => {
       result = { ...result, rx: standard * -1, ry: standard };
       break;
     case 2:
-      result = { ...result, rx: (standard + 90) * -1, ry: standard };
+      result = { ...result, rx: (standard - 90) * -1, ry: standard };
       break;
     case 3:
-      result = { ...result, rx: standard * -1, ry: standard - 90 };
-      break;
-    case 4:
       result = { ...result, rx: standard * -1, ry: standard + 90 };
       break;
+    case 4:
+      result = { ...result, rx: standard * -1, ry: standard - 90 };
+      break;
     case 5:
-      result = { ...result, rx: (standard - 90) * -1, ry: standard };
+      result = { ...result, rx: (standard + 90) * -1, ry: standard };
       break;
     case 6:
       result = { ...result, rx: standard * 2 * -1, ry: standard };
@@ -54,20 +57,38 @@ const onKeyFrames = (reverse: number = 1) => {
 
 const Dice = ({ roll }: DiceProps) => {
   const [index, setIndex] = useState({
-    dice1: { tx: 0, ty: 0, rx: 0, ry: 0 },
-    dice2: { tx: 0, ty: 0, rx: 0, ry: 0 },
+    dice1: { tx: 0, ty: 0, rx: 0, ry: 0, num: 0 },
+    dice2: { tx: 0, ty: 0, rx: 0, ry: 0, num: 0 },
   } as RollType);
 
+  const [rollAction, setRollAction] = useState(false);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    setIndex({
+    const dice = {
       dice1: onKeyFrames(),
       dice2: onKeyFrames(-1),
-    });
+    };
+
+    setIndex(dice);
+
+    if (roll !== 0) {
+      onDiceUpdate(dice.dice1.num, dice.dice2.num);
+    }
   }, [roll]);
+
+  const onDiceUpdate = (num1: number, num2: number) => {
+    setRollAction(true);
+    dispatch(diceUpdate(num1 + num2));
+
+    setTimeout(() => {
+      setRollAction(false);
+    }, 3000);
+  };
 
   return (
     <>
-      {roll && (
+      {rollAction && (
         <Container>
           <Dice1 index={index.dice1}>
             <div className="top" />
