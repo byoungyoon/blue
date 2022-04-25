@@ -1,9 +1,9 @@
-export type PlayerIndexType = {
-  [key: string]: PlayerType;
-  player1: PlayerType;
-  player2: PlayerType;
-  player3: PlayerType;
-  player4: PlayerType;
+export type PlayerIndexType<C = PlayerType> = {
+  [key: string]: C;
+  player1: C;
+  player2: C;
+  player3: C;
+  player4: C;
 };
 
 export type PlayerType = {

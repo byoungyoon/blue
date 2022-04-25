@@ -79,11 +79,14 @@ const Dice = ({ roll }: DiceProps) => {
 
   const onDiceUpdate = (num1: number, num2: number) => {
     setRollAction(true);
-    dispatch(diceUpdate(num1 + num2, roll));
+
+    setTimeout(() => {
+      dispatch(diceUpdate(num1 + num2, roll));
+    }, 2000);
 
     setTimeout(() => {
       setRollAction(false);
-    }, 3000);
+    }, 4000);
   };
 
   return (
