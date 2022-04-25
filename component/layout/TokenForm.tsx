@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { RootState } from '../../util/store';
 import { playerUpdate } from '../../util/store/Player.reducer';
 import { PlayerIndexType } from '../../types/Player.type';
+import { turnUpdate } from '../../util/store/Turn.reducer';
 
 const TokenForm = () => {
   const player = useSelector(({ PlayerReducer }: RootState) => PlayerReducer);
@@ -25,9 +26,9 @@ const TokenForm = () => {
 
   const onDice = useCallback(() => {
     const ni = (player[`player${turn}`].index + dice.dice) % 40;
-
     setNextIndex({ ...nextIndex, [`player${turn}`]: ni });
     dispatch(playerUpdate(`player${turn}`, ni));
+    dispatch(turnUpdate());
   }, [dice]);
 
   const onIndex = (ni: number) => {
@@ -64,7 +65,16 @@ const TokenForm = () => {
   return (
     <>
       {Object.keys(player).map((key, index) => (
-        <Token key={index} position={onIndex(nextIndex[key])} color={player[key].color} />
+        <Token key={index} position={onIndex(nextIndex[key])}>
+          <TokenWap color={player[key].color}>
+            <div className="top" />
+            <div className="left" />
+            <div className="front" />
+            <div className="back" />
+            <div className="right" />
+            <div className="bottom" />
+          </TokenWap>
+        </Token>
       ))}
     </>
   );
@@ -79,6 +89,48 @@ const Token = styled.div<{ position: any; color?: string }>`
 
   position: absolute;
   ${(props) => props.position};
+`;
+
+const TokenWap = styled.div<{ color?: string }>`
+  transform-style: preserve-3d;
+  transform: rotateX(20deg) rotateY(20deg) translateZ(2px);
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 999;
+  position: relative;
+
+  & > div {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: ${(props) => props.color};
+    border: 1px solid black;
+    opacity: 0.9;
+  }
+
+  & .top {
+    transform: translateZ(17px);
+  }
+  & .bottom {
+  }
+  & .left {
+    transform: translateY(-50%) rotateX(90deg);
+  }
+  & .right {
+    transform: translateY(50%) rotateX(90deg);
+  }
+  & .front {
+    transform: translateX(-50%) rotateY(90deg);
+  }
+  & .back {
+    transform: translateX(50%) rotateY(90deg);
+  }
 `;
 
 export default TokenForm;
