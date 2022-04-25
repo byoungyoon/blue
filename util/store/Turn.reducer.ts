@@ -1,17 +1,20 @@
 const TURN_UPDATE = 'turn/update' as const;
 
-export const turnUpdate = () => ({
+export const turnUpdate = (nextTurn: number) => ({
   type: TURN_UPDATE,
+  payload: {
+    turn: nextTurn,
+  },
 });
 
 type TurnAction = ReturnType<typeof turnUpdate>;
 
-const initsState: number = 4;
+const initsState: number = 1;
 
 const TurnReducer = (state: number = initsState, action: TurnAction) => {
   switch (action.type) {
     case TURN_UPDATE:
-      return state + 1 > 4 ? 1 : state + 1;
+      return action.payload.turn;
     default:
       return state;
   }

@@ -26,9 +26,18 @@ const TokenForm = () => {
 
   const onDice = useCallback(() => {
     const ni = (player[`player${turn}`].index + dice.dice) % 40;
+
+    if (ni === 0) return;
+
     setNextIndex({ ...nextIndex, [`player${turn}`]: ni });
     dispatch(playerUpdate(`player${turn}`, ni));
-    dispatch(turnUpdate());
+
+    let nextTurn = turn + 1 > 4 ? 1 : turn + 1;
+    while (!player[`player${nextTurn}`].status) {
+      nextTurn = nextTurn + 1 > 4 ? 1 : nextTurn + 1;
+    }
+
+    dispatch(turnUpdate(nextTurn));
   }, [dice]);
 
   const onIndex = (ni: number) => {
@@ -64,18 +73,21 @@ const TokenForm = () => {
 
   return (
     <>
-      {Object.keys(player).map((key, index) => (
-        <Token key={index} position={onIndex(nextIndex[key])}>
-          <TokenWap color={player[key].color}>
-            <div className="top" />
-            <div className="left" />
-            <div className="front" />
-            <div className="back" />
-            <div className="right" />
-            <div className="bottom" />
-          </TokenWap>
-        </Token>
-      ))}
+      {Object.keys(player).map(
+        (key, index) =>
+          player[key].status && (
+            <Token key={index} position={onIndex(nextIndex[key])}>
+              <TokenWap color={player[key].color}>
+                <div className="top" />
+                <div className="left" />
+                <div className="front" />
+                <div className="back" />
+                <div className="right" />
+                <div className="bottom" />
+              </TokenWap>
+            </Token>
+          ),
+      )}
     </>
   );
 };
