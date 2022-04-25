@@ -61,9 +61,13 @@ const TokenForm = () => {
     }
   };
 
-  return Object.keys(player).map((key, index) => (
-    <Token key={index} position={onIndex(nextIndex[key])} color={player[key].color} />
-  ));
+  return (
+    <>
+      {Object.keys(player).map((key, index) => (
+        <Token key={index} position={onIndex(nextIndex[key])} color={player[key].color} />
+      ))}
+    </>
+  );
 };
 
 const Token = styled.div<{ position: any; color?: string }>`

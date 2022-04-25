@@ -94,20 +94,44 @@ const Dice = ({ roll }: DiceProps) => {
       {rollAction && (
         <Container>
           <Dice1 index={index.dice1}>
-            <div className="top" />
-            <div className="left" />
-            <div className="front" />
-            <div className="back" />
-            <div className="right" />
-            <div className="bottom" />
+            <div className="top">
+              <img src="/image/one.jpeg" />
+            </div>
+            <div className="left">
+              <img src="/image/two.png" />
+            </div>
+            <div className="front">
+              <img src="/image/three.png" />
+            </div>
+            <div className="back">
+              <img src="/image/four.png" />
+            </div>
+            <div className="right">
+              <img src="/image/five.png" />
+            </div>
+            <div className="bottom">
+              <img src="/image/six.png" />
+            </div>
           </Dice1>
           <Dice2 index={index.dice2}>
-            <div className="top" />
-            <div className="left" />
-            <div className="front" />
-            <div className="back" />
-            <div className="right" />
-            <div className="bottom" />
+            <div className="top">
+              <img src="/image/one.jpeg" />
+            </div>
+            <div className="left">
+              <img src="/image/two.png" />
+            </div>
+            <div className="front">
+              <img src="/image/three.png" />
+            </div>
+            <div className="back">
+              <img src="/image/four.png" />
+            </div>
+            <div className="right">
+              <img src="/image/five.png" />
+            </div>
+            <div className="bottom">
+              <img src="/image/six.png" />
+            </div>
           </Dice2>
         </Container>
       )}
@@ -143,35 +167,31 @@ const DiceWap = styled.div<{ index: DiceType }>`
     top: 0;
     left: 0;
 
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center;
+    & img {
+      width: 60px;
+      height: 60px;
+    }
+
     background-color: #fff;
   }
 
   & .top {
     transform: rotateX(-10deg) translateZ(30px);
-    background-image: url('${one.src}');
   }
   & .bottom {
     transform: rotateX(-10deg) translateZ(-30px);
-    background-image: url('${six.src}');
   }
   & .left {
     transform: rotateX(-10deg) translateY(-30px) rotateX(90deg);
-    background-image: url('${two.src}');
   }
   & .right {
     transform: rotateX(-10deg) translateY(30px) rotateX(90deg);
-    background-image: url('${five.src}');
   }
   & .front {
     transform: rotateX(-10deg) translateX(-30px) rotateY(90deg);
-    background-image: url('${three.src}');
   }
   & .back {
     transform: rotateX(-10deg) translateX(30px) rotateY(90deg);
-    background-image: url('${four.src}');
   }
 `;
 

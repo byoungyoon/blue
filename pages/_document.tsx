@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import React from 'react';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -16,10 +17,10 @@ export default class CustomDocument extends Document {
       return {
         ...initialProps,
         styles: (
-          <>
+          <React.Fragment>
             {initialProps.styles}
             {sheet.getStyleElement()}
-          </>
+          </React.Fragment>
         ),
       };
     } finally {
