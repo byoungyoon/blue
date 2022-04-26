@@ -12,6 +12,7 @@ export type AreaIndexType = {
  *   pay: 나라에서 지불 금액
  * */
 export type AreaDetailType = {
+  key: number;
   name: string;
   type: string;
   price: AreaBuildType;
@@ -29,4 +30,13 @@ export type AreaBuildType = {
   e2: number;
   e3: number;
   e4: number;
+};
+
+export type AreaStateType = AreaDetailType & {
+  possession: {
+    e1: boolean;
+    e2: boolean;
+    e3: boolean;
+    e4: boolean;
+  };
 };

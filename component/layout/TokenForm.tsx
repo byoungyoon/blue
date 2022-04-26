@@ -5,11 +5,15 @@ import { RootState } from '../../util/store';
 import { playerUpdate } from '../../util/store/Player.reducer';
 import { PlayerIndexType } from '../../types/Player.type';
 import { turnUpdate } from '../../util/store/Turn.reducer';
+import { toPercent, toPosition } from '../../util/common/Token.util';
+import { AreaDetailType } from '../../types/Area.type';
+import AreaDetail from '../common/AreaDetail';
 
 const TokenForm = () => {
   const player = useSelector(({ PlayerReducer }: RootState) => PlayerReducer);
   const dice = useSelector(({ DiceReducer }: RootState) => DiceReducer);
   const turn = useSelector(({ TurnReducer }: RootState) => TurnReducer);
+  const area = useSelector(({ AreaReducer }: RootState) => AreaReducer);
 
   const dispatch = useDispatch();
 
@@ -19,53 +23,57 @@ const TokenForm = () => {
     player3: 0,
     player4: 0,
   });
+  const [detail, setDetail] = useState<AreaDetailType>();
 
   useEffect(() => {
-    onDice();
-  }, [dice]);
-
-  const onDice = useCallback(() => {
     const ni = (player[`player${turn}`].index + dice.dice) % 40;
-
     if (ni === 0) return;
 
-    setNextIndex({ ...nextIndex, [`player${turn}`]: ni });
-    dispatch(playerUpdate(`player${turn}`, ni));
+    onDice(ni);
+    onTurn(ni);
+  }, [dice.roll]);
 
-    let nextTurn = turn + 1 > 4 ? 1 : turn + 1;
-    while (!player[`player${nextTurn}`].status) {
-      nextTurn = nextTurn + 1 > 4 ? 1 : nextTurn + 1;
-    }
+  const onDice = useCallback(
+    (ni: number) => {
+      setNextIndex({ ...nextIndex, [`player${turn}`]: ni });
+      dispatch(playerUpdate(`player${turn}`, ni));
 
-    dispatch(turnUpdate(nextTurn));
-  }, [dice]);
+      let nextTurn = turn + 1 > 4 ? 1 : turn + 1;
+      while (!player[`player${nextTurn}`].status) {
+        nextTurn = nextTurn + 1 > 4 ? 1 : nextTurn + 1;
+      }
+
+      dispatch(turnUpdate(nextTurn));
+    },
+    [dice.roll],
+  );
+
+  const onTurn = useCallback(
+    (ni: number) => {
+      console.log(ni);
+      setDetail(area.filter((key) => key.key === ni)[0]);
+    },
+    [turn],
+  );
 
   const onIndex = (ni: number) => {
     const edit = 5;
     const move = 70 / 9;
     const center = (70 / 9 - 5) / 2;
 
-    const toPercent = (num: number) => {
-      return `${num}%`;
-    };
-
-    switch (Math.floor(ni / 10)) {
-      case 0:
+    switch (toPosition(ni)) {
+      case 'bottom':
         if (ni % 10 == 0) return `bottom: ${toPercent(edit)}; right: ${toPercent(edit)}`;
         return `bottom: ${toPercent(edit)}; right: ${toPercent(15 - move + move * (ni % 10) + center)}`;
-        break;
-      case 1:
+      case 'left':
         if (ni % 10 == 0) return `bottom: ${toPercent(edit)}; left: ${toPercent(edit)}`;
         return `bottom: ${toPercent(15 - move + move * (ni % 10) + center)}; left: ${toPercent(edit)}`;
-        break;
-      case 2:
+      case 'top':
         if (ni % 10 == 0) return `top: ${toPercent(edit)}; left: ${toPercent(edit)}`;
         return `top: ${toPercent(edit)}; left: ${toPercent(15 - move + move * (ni % 10) + center)}`;
-        break;
-      case 3:
+      case 'right':
         if (ni % 10 == 0) return `top: ${toPercent(edit)}; right: ${toPercent(edit)}`;
         return `top: ${toPercent(15 - move + move * (ni % 10) + center)}; right: ${toPercent(edit)}`;
-        break;
       default:
         return `bottom: ${toPercent(edit)}; right: ${toPercent(edit)}`;
     }
@@ -88,6 +96,7 @@ const TokenForm = () => {
             </Token>
           ),
       )}
+      <AreaDetail detail={detail} />
     </>
   );
 };
