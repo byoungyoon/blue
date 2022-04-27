@@ -1,12 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const Error = () => {
-  return (
-    <Container>
-      <div className="title">500 Error</div>
-    </Container>
-  );
-};
+const Error = () => (
+  <Container>
+    <div className="title">500 Error</div>
+  </Container>
+);
 
 const Container = styled.div`
   display: flex;

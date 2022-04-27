@@ -1,3 +1,4 @@
+import React from 'react';
 import GlobalStyle from '../styles/GlobalStyle';
 import type { AppProps } from 'next/app';
 import { wrapper } from '../util/store';

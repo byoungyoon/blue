@@ -1,12 +1,11 @@
+import React from 'react';
 import styled from 'styled-components';
 
-const Custom404 = () => {
-  return (
-    <Container>
-      <div className="title">404 Error</div>
-    </Container>
-  );
-};
+const Custom404 = () => (
+  <Container>
+    <div className="title">404 Error</div>
+  </Container>
+);
 
 const Container = styled.div`
   display: flex;
