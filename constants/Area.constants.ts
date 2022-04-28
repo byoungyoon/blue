@@ -19,20 +19,20 @@ export const AreaNameConstants = {
   ATHENS: '아테네',
   COPENHAGEN: '코펜하겐',
   STOCKHOLM: '스톡홀름',
-  CONCORDE: '콩코드\n여객기',
+  CONCORDE: '콩코드 여객기',
   BERNE: '베른',
   BERLIN: '베를린',
   OTTAWA: '오타와',
-  BUENOS_AIRES: '부에노스\n아이레스',
+  BUENOS_AIRES: '부에노스 아이레스',
   SAOPAULO: '상파올루',
   SYDNEY: '시드니',
   BUSAN: '부산',
   HAWAII: '하와이',
   LISBOA: '리스본',
-  QUEEN_ELIZABETH: '퀸엘리호',
+  QUEEN_ELIZABETH: '퀸 엘리자베스 호',
   MADRID: '마드리드',
   TOKYO: '도쿄',
-  COLUMBIA_REDIVIVA: '컬럼\n비아호',
+  COLUMBIA_REDIVIVA: '컬럼 비아호',
   PARIS: '파리',
   ROMA: '로마',
   LONDON: '런던',
@@ -46,11 +46,46 @@ export const AreaNameConstants = {
   SPACE_TRAVEL: '우주여행',
 };
 
+export const IMAGE_PATH = '/image/area';
+
+export const AreaENameConstants = {
+  TAIPEL: `Taipel`,
+  BEIJING: `Beijing`,
+  MANILA: `Manila`,
+  JEJU: `Jeju`,
+  SINGAPURA: `Singapura`,
+  CAIRO: `Cairo`,
+  ISTANBUL: `Istanbul`,
+  ATHENS: 'Athens',
+  COPENHAGEN: 'Copenagen',
+  STOCKHOLM: 'Stockholm',
+  CONCORDE: 'Cokcorde Airliner',
+  BERNE: 'Berne',
+  BERLIN: 'Berlin',
+  OTTAWA: 'Ottawa',
+  BUENOS_AIRES: 'Buenos Aires',
+  SAOPAULO: 'Saopaulo',
+  SYDNEY: 'Sydney',
+  BUSAN: 'Busan',
+  HAWAII: 'Hawaii',
+  LISBOA: 'Lisboa',
+  QUEEN_ELIZABETH: 'Queen Elizabeth',
+  MADRID: 'Madrid',
+  TOKYO: 'Tokyo',
+  COLUMBIA_REDIVIVA: 'Columbia Rediviva',
+  PARIS: 'Paris',
+  ROMA: 'Roma',
+  LONDON: 'London',
+  NEW_YORK: 'New York',
+  SEOUL: 'Seoul',
+};
+
 export const AreaConstants: AreaType = {
   bottom: {
     1: {
       key: 1,
       name: AreaNameConstants.TAIPEL,
+      eName: AreaENameConstants.TAIPEL,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 5, e2: 5, e3: 15, e4: 25 },
       pay: { e1: 0.2, e2: 1, e3: 9, e4: 25 },
@@ -65,6 +100,7 @@ export const AreaConstants: AreaType = {
     3: {
       key: 3,
       name: AreaNameConstants.BEIJING,
+      eName: AreaENameConstants.BEIJING,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 8, e2: 5, e3: 15, e4: 25 },
       pay: { e1: 0.4, e2: 2, e3: 18, e4: 45 },
@@ -72,6 +108,7 @@ export const AreaConstants: AreaType = {
     4: {
       key: 4,
       name: AreaNameConstants.MANILA,
+      eName: AreaENameConstants.MANILA,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 8, e2: 5, e3: 15, e4: 25 },
       pay: { e1: 0.4, e2: 2, e3: 18, e4: 45 },
@@ -79,6 +116,7 @@ export const AreaConstants: AreaType = {
     5: {
       key: 5,
       name: AreaNameConstants.JEJU,
+      eName: AreaENameConstants.JEJU,
       type: AreaTypeConstants.COUNTRY_LAND,
       price: { e1: 20, e2: 0, e3: 0, e4: 0 },
       pay: { e1: 30, e2: 0, e3: 0, e4: 0 },
@@ -86,6 +124,7 @@ export const AreaConstants: AreaType = {
     6: {
       key: 6,
       name: AreaNameConstants.SINGAPURA,
+      eName: AreaENameConstants.SINGAPURA,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 10, e2: 5, e3: 15, e4: 25 },
       pay: { e1: 0.6, e2: 3, e3: 27, e4: 55 },
@@ -100,6 +139,7 @@ export const AreaConstants: AreaType = {
     8: {
       key: 8,
       name: AreaNameConstants.CAIRO,
+      eName: AreaENameConstants.CAIRO,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 10, e2: 5, e3: 15, e4: 25 },
       pay: { e1: 0.6, e2: 3, e3: 27, e4: 55 },
@@ -107,6 +147,7 @@ export const AreaConstants: AreaType = {
     9: {
       key: 9,
       name: AreaNameConstants.ISTANBUL,
+      eName: AreaENameConstants.ISTANBUL,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 12, e2: 5, e3: 15, e4: 25 },
       pay: { e1: 0.8, e2: 4, e3: 30, e4: 60 },
@@ -117,6 +158,7 @@ export const AreaConstants: AreaType = {
     1: {
       key: 11,
       name: AreaNameConstants.ATHENS,
+      eName: AreaENameConstants.ATHENS,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 14, e2: 10, e3: 30, e4: 50 },
       pay: { e1: 1, e2: 5.15, e3: 45, e4: 75 },
@@ -131,6 +173,7 @@ export const AreaConstants: AreaType = {
     3: {
       key: 13,
       name: AreaNameConstants.COPENHAGEN,
+      eName: AreaENameConstants.COPENHAGEN,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 16, e2: 10, e3: 30, e4: 50 },
       pay: { e1: 1.2, e2: 6.18, e3: 50, e4: 90 },
@@ -138,6 +181,7 @@ export const AreaConstants: AreaType = {
     4: {
       key: 14,
       name: AreaNameConstants.STOCKHOLM,
+      eName: AreaENameConstants.STOCKHOLM,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 16, e2: 10, e3: 30, e4: 50 },
       pay: { e1: 1.2, e2: 6.18, e3: 50, e4: 90 },
@@ -145,6 +189,7 @@ export const AreaConstants: AreaType = {
     5: {
       key: 15,
       name: AreaNameConstants.CONCORDE,
+      eName: AreaENameConstants.CONCORDE,
       type: AreaTypeConstants.COUNTRY_LAND,
       price: { e1: 20, e2: 0, e3: 0, e4: 0 },
       pay: { e1: 30, e2: 0, e3: 0, e4: 0 },
@@ -152,6 +197,7 @@ export const AreaConstants: AreaType = {
     6: {
       key: 16,
       name: AreaNameConstants.BERNE,
+      eName: AreaENameConstants.BERNE,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 18, e2: 10, e3: 30, e4: 50 },
       pay: { e1: 1.4, e2: 7.2, e3: 55, e4: 95 },
@@ -166,6 +212,7 @@ export const AreaConstants: AreaType = {
     8: {
       key: 18,
       name: AreaNameConstants.BERLIN,
+      eName: AreaENameConstants.BERLIN,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 16, e2: 10, e3: 30, e4: 50 },
       pay: { e1: 1.2, e2: 6.18, e3: 50, e4: 90 },
@@ -173,6 +220,7 @@ export const AreaConstants: AreaType = {
     9: {
       key: 19,
       name: AreaNameConstants.OTTAWA,
+      eName: AreaENameConstants.OTTAWA,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 20, e2: 10, e3: 30, e4: 50 },
       pay: { e1: 1.6, e2: 8.22, e3: 60, e4: 100 },
@@ -183,6 +231,7 @@ export const AreaConstants: AreaType = {
     1: {
       key: 21,
       name: AreaNameConstants.BUENOS_AIRES,
+      eName: AreaENameConstants.BUENOS_AIRES,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 22, e2: 15, e3: 40, e4: 75 },
       pay: { e1: 1.8, e2: 9.25, e3: 70, e4: 105 },
@@ -197,6 +246,7 @@ export const AreaConstants: AreaType = {
     3: {
       key: 23,
       name: AreaNameConstants.SAOPAULO,
+      eName: AreaENameConstants.SAOPAULO,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 24, e2: 15, e3: 45, e4: 75 },
       pay: { e1: 2, e2: 10.3, e3: 75, e4: 110 },
@@ -204,6 +254,7 @@ export const AreaConstants: AreaType = {
     4: {
       key: 24,
       name: AreaNameConstants.SYDNEY,
+      eName: AreaENameConstants.SYDNEY,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 24, e2: 15, e3: 45, e4: 75 },
       pay: { e1: 2, e2: 10.3, e3: 75, e4: 110 },
@@ -211,6 +262,7 @@ export const AreaConstants: AreaType = {
     5: {
       key: 25,
       name: AreaNameConstants.BUSAN,
+      eName: AreaENameConstants.BUSAN,
       type: AreaTypeConstants.COUNTRY_LAND,
       price: { e1: 50, e2: 0, e3: 0, e4: 0 },
       pay: { e1: 60, e2: 0, e3: 0, e4: 0 },
@@ -218,6 +270,7 @@ export const AreaConstants: AreaType = {
     6: {
       key: 26,
       name: AreaNameConstants.HAWAII,
+      eName: AreaENameConstants.HAWAII,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 26, e2: 15, e3: 45, e4: 75 },
       pay: { e1: 2.2, e2: 11.33, e3: 80, e4: 115 },
@@ -225,6 +278,7 @@ export const AreaConstants: AreaType = {
     7: {
       key: 27,
       name: AreaNameConstants.LISBOA,
+      eName: AreaENameConstants.LISBOA,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 26, e2: 15, e3: 45, e4: 75 },
       pay: { e1: 2.2, e2: 11.33, e3: 80, e4: 115 },
@@ -232,6 +286,7 @@ export const AreaConstants: AreaType = {
     8: {
       key: 28,
       name: AreaNameConstants.QUEEN_ELIZABETH,
+      eName: AreaENameConstants.QUEEN_ELIZABETH,
       type: AreaTypeConstants.COUNTRY_LAND,
       price: { e1: 30, e2: 0, e3: 0, e4: 0 },
       pay: { e1: 25, e2: 0, e3: 0, e4: 0 },
@@ -239,6 +294,7 @@ export const AreaConstants: AreaType = {
     9: {
       key: 29,
       name: AreaNameConstants.MADRID,
+      eName: AreaENameConstants.MADRID,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 28, e2: 15, e3: 45, e4: 75 },
       pay: { e1: 2.4, e2: 12.36, e3: 85, e4: 120 },
@@ -249,6 +305,7 @@ export const AreaConstants: AreaType = {
     1: {
       key: 31,
       name: AreaNameConstants.TOKYO,
+      eName: AreaENameConstants.TOKYO,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 30, e2: 20, e3: 60, e4: 100 },
       pay: { e1: 2.6, e2: 13.39, e3: 90, e4: 127 },
@@ -256,6 +313,7 @@ export const AreaConstants: AreaType = {
     2: {
       key: 32,
       name: AreaNameConstants.COLUMBIA_REDIVIVA,
+      eName: AreaENameConstants.COLUMBIA_REDIVIVA,
       type: AreaTypeConstants.COUNTRY_LAND,
       price: { e1: 45, e2: 0, e3: 0, e4: 0 },
       pay: { e1: 30, e2: 0, e3: 0, e4: 0 },
@@ -263,6 +321,7 @@ export const AreaConstants: AreaType = {
     3: {
       key: 33,
       name: AreaNameConstants.PARIS,
+      eName: AreaENameConstants.PARIS,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 32, e2: 20, e3: 60, e4: 100 },
       pay: { e1: 2.8, e2: 15.45, e3: 100, e4: 140 },
@@ -270,6 +329,7 @@ export const AreaConstants: AreaType = {
     4: {
       key: 34,
       name: AreaNameConstants.ROMA,
+      eName: AreaENameConstants.ROMA,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 32, e2: 20, e3: 60, e4: 100 },
       pay: { e1: 2.8, e2: 15.45, e3: 100, e4: 140 },
@@ -284,6 +344,7 @@ export const AreaConstants: AreaType = {
     6: {
       key: 36,
       name: AreaNameConstants.LONDON,
+      eName: AreaENameConstants.LONDON,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 35, e2: 20, e3: 60, e4: 100 },
       pay: { e1: 3.5, e2: 17.5, e3: 110, e4: 150 },
@@ -291,6 +352,7 @@ export const AreaConstants: AreaType = {
     7: {
       key: 37,
       name: AreaNameConstants.NEW_YORK,
+      eName: AreaENameConstants.NEW_YORK,
       type: AreaTypeConstants.COUNTRY,
       price: { e1: 35, e2: 20, e3: 60, e4: 100 },
       pay: { e1: 3.5, e2: 17.5, e3: 110, e4: 150 },
@@ -305,6 +367,7 @@ export const AreaConstants: AreaType = {
     9: {
       key: 39,
       name: AreaNameConstants.SEOUL,
+      eName: AreaENameConstants.SEOUL,
       type: AreaTypeConstants.COUNTRY_LAND,
       price: { e1: 100, e2: 0, e3: 0, e4: 0 },
       pay: { e1: 200, e2: 0, e3: 0, e4: 0 },

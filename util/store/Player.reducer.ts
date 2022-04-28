@@ -2,6 +2,7 @@ import { PlayerIndexType, PlayerType } from '../../types/Player.type';
 
 const PLAYER_UPDATE = 'player/update' as const;
 const PLAYER_INSERT = 'player/insert' as const;
+const PLAYER_POINT_UPDATE = 'player/pointUpdate' as const;
 
 export const playerUpdate = (player: string, nextIndex: number) => ({
   type: PLAYER_UPDATE,
@@ -17,8 +18,18 @@ export const playerInsert = (values: PlayerType, index: string) => ({
     index: index,
   },
 });
+export const playerPointUpdate = (player: number, point: number) => ({
+  type: PLAYER_POINT_UPDATE,
+  payload: {
+    player: player,
+    point: point,
+  },
+});
 
-type PlayerAction = ReturnType<typeof playerUpdate> | ReturnType<typeof playerInsert>;
+type PlayerAction =
+  | ReturnType<typeof playerUpdate>
+  | ReturnType<typeof playerInsert>
+  | ReturnType<typeof playerPointUpdate>;
 
 const initState: PlayerIndexType = {
   player1: {
@@ -61,6 +72,16 @@ const PlayerReducer = (state: PlayerIndexType = initState, action: PlayerAction)
       return { ...state, [action.payload.index]: { ...state[action.payload.index], ...action.payload.value } };
     case PLAYER_UPDATE:
       return { ...state, [action.payload.player]: { ...state[action.payload.player], index: action.payload.index } };
+    case PLAYER_POINT_UPDATE:
+      return {
+        ...state,
+        [`player${action.payload.player}`]: {
+          ...[`player${action.payload.player}`],
+          point: action.payload.point,
+          status: true,
+        },
+      };
+      return;
     default:
       return state;
   }

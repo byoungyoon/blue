@@ -3,22 +3,17 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 import Board from '../component/layout/Board';
-import { CustomDialog } from '../component/common/Dialog';
-import DialogForm from '../component/layout/DialogForm';
-import PlayerForm from '../component/layout/PlayerForm';
+import Fixed from '../component/layout/Fixed';
 
 const Home: NextPage = () => (
   <div>
     <Head>
       <title>Blue-Marble</title>
     </Head>
-    <PlayerForm />
     <Container>
-      <CustomDialog title="플레이어 선택" width="sm">
-        <DialogForm />
-      </CustomDialog>
       <Board />
     </Container>
+    <Fixed />
   </div>
 );
 

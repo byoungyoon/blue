@@ -14,9 +14,16 @@ export type AreaIndexType = {
 export type AreaDetailType = {
   key: number;
   name: string;
+  eName?: string;
   type: string;
   price: AreaBuildType;
   pay: AreaBuildType;
+};
+
+export type AreaDetailStateType = {
+  isOpen: boolean;
+  turn?: number;
+  value?: AreaDetailType;
 };
 
 /*
@@ -26,6 +33,7 @@ export type AreaDetailType = {
  *   e4: 호텔 가격
  * */
 export type AreaBuildType = {
+  [key: string]: number;
   e1: number;
   e2: number;
   e3: number;
@@ -33,6 +41,7 @@ export type AreaBuildType = {
 };
 
 export type AreaStateType = AreaDetailType & {
+  player: number;
   possession: {
     e1: boolean;
     e2: boolean;

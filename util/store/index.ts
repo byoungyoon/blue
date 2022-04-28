@@ -4,6 +4,7 @@ import PlayerReducer from './Player.reducer';
 import DiceReducer from './Dice.reducer';
 import TurnReducer from './Turn.reducer';
 import AreaReducer from './Area.reducer';
+import AreaOneReducer from './AreaOne.reducer';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   DiceReducer,
   TurnReducer,
   AreaReducer,
+  AreaOneReducer,
 });
 
 const reducer = (state: any, action: any) => {

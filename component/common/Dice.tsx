@@ -1,10 +1,4 @@
 import styled, { keyframes } from 'styled-components';
-import one from '../../public/image/one.jpeg';
-import two from '../../public/image/two.png';
-import three from '../../public/image/three.png';
-import four from '../../public/image/four.png';
-import five from '../../public/image/five.png';
-import six from '../../public/image/six.png';
 import { useEffect, useState } from 'react';
 import { getRandom, getRandomNum } from '../../util/common/Random.util';
 import { DiceProps, DiceType, RollType } from '../../types/Dice.type';
@@ -156,7 +150,7 @@ const DiceWap = styled.div<{ index: DiceType }>`
   width: 60px;
   height: 60px;
 
-  z-index: 999;
+  z-index: 901;
   position: absolute;
 
   & > div {

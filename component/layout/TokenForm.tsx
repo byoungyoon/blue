@@ -6,8 +6,7 @@ import { playerUpdate } from '../../util/store/Player.reducer';
 import { PlayerIndexType } from '../../types/Player.type';
 import { turnUpdate } from '../../util/store/Turn.reducer';
 import { toPercent, toPosition } from '../../util/common/Token.util';
-import { AreaDetailType } from '../../types/Area.type';
-import AreaDetail from '../common/AreaDetail';
+import { areaOneOpen } from '../../util/store/AreaOne.reducer';
 
 const TokenForm = () => {
   const player = useSelector(({ PlayerReducer }: RootState) => PlayerReducer);
@@ -23,7 +22,6 @@ const TokenForm = () => {
     player3: 0,
     player4: 0,
   });
-  const [detail, setDetail] = useState<AreaDetailType>();
 
   useEffect(() => {
     const ni = (player[`player${turn}`].index + dice.dice) % 40;
@@ -50,8 +48,7 @@ const TokenForm = () => {
 
   const onTurn = useCallback(
     (ni: number) => {
-      console.log(ni);
-      setDetail(area.filter((key) => key.key === ni)[0]);
+      dispatch(areaOneOpen(area.filter((key) => key.key === ni)[0], turn));
     },
     [turn],
   );
@@ -96,7 +93,6 @@ const TokenForm = () => {
             </Token>
           ),
       )}
-      <AreaDetail detail={detail} />
     </>
   );
 };
@@ -119,7 +115,7 @@ const TokenWap = styled.div<{ color?: string }>`
   width: 100%;
   height: 100%;
 
-  z-index: 999;
+  z-index: 901;
   position: relative;
 
   & > div {

@@ -3,6 +3,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = {
-  basePath: '/blue',
-};
+module.exports = nextConfig;
