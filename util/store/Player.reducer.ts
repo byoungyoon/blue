@@ -76,12 +76,10 @@ const PlayerReducer = (state: PlayerIndexType = initState, action: PlayerAction)
       return {
         ...state,
         [`player${action.payload.player}`]: {
-          ...[`player${action.payload.player}`],
+          ...state[`player${action.payload.player}`],
           point: action.payload.point,
-          status: true,
         },
       };
-      return;
     default:
       return state;
   }

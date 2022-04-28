@@ -13,7 +13,7 @@ import { playerPointUpdate } from '../../util/store/Player.reducer';
 
 const AreaDetailForm = () => {
   const detail = useSelector(({ AreaOneReducer }: RootState) => AreaOneReducer);
-  // const player = useSelector(({ PlayerReducer }: RootState) => detail.turn ? PlayerReducer[`player${detail.turn}`]);
+  const player = useSelector(({ PlayerReducer }: RootState) => PlayerReducer[`player${detail.turn}`]);
 
   const dispatch = useDispatch();
 
@@ -105,7 +105,7 @@ const AreaDetailForm = () => {
               총 구매비용{' -> '}
               <span className="red">{detail.value && sum + detail.value?.pay.e1}만</span>
             </div>
-            {/*<div className="current">보유현금{` -> ${detail.turn && player.point}만`}</div>*/}
+            <div className="current">보유현금{` -> ${player.point}만`}</div>
           </div>
         </div>
         <div className="bottom">
