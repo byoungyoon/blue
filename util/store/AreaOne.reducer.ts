@@ -1,9 +1,9 @@
-import { AreaDetailStateType, AreaDetailType } from '../../types/Area.type';
+import { AreaDetailStateType, AreaStateType } from '../../types/Area.type';
 
 const AREA_ONE_OPEN = 'areaOne/open' as const;
 const AREA_ONE_CLOSE = 'areaOne/close' as const;
 
-export const areaOneOpen = (value: AreaDetailType, turn: number) => ({
+export const areaOneOpen = (value: AreaStateType, turn: number) => ({
   type: AREA_ONE_OPEN,
   payload: {
     value: value,
@@ -27,7 +27,7 @@ const AreaOneReducer = (state: AreaDetailStateType = initState, action: AreaOneA
     case AREA_ONE_OPEN:
       return { value: action.payload.value, turn: action.payload.turn, isOpen: true };
     case AREA_ONE_CLOSE:
-      return { ...state, isOpen: false };
+      return { isOpen: false };
     default:
       return state;
   }

@@ -19,13 +19,6 @@ export type AreaDetailType = {
   price: AreaBuildType;
   pay: AreaBuildType;
 };
-
-export type AreaDetailStateType = {
-  isOpen: boolean;
-  turn?: number;
-  value?: AreaDetailType;
-};
-
 /*
  *   e1: 토지 가격
  *   e2: 별장 가격
@@ -43,9 +36,16 @@ export type AreaBuildType = {
 export type AreaStateType = AreaDetailType & {
   player: number;
   possession: {
+    [key: string]: boolean;
     e1: boolean;
     e2: boolean;
     e3: boolean;
     e4: boolean;
   };
+};
+
+export type AreaDetailStateType = {
+  isOpen: boolean;
+  turn?: number;
+  value?: AreaStateType;
 };
