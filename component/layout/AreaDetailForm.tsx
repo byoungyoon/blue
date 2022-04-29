@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../util/store';
 import LensIcon from '@mui/icons-material/Lens';
 import { IMAGE_PATH } from '../../constants/Area.constants';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import CheckIcon from '@mui/icons-material/Check';
 import CloseIcon from '@mui/icons-material/Close';
@@ -26,11 +26,16 @@ const AreaDetailForm = () => {
   });
   const [sum, setSum] = useState(0);
 
+  useEffect(() => {
+    setSum(0);
+    setCheck({ e2: false, e3: false, e4: false });
+  }, [detail]);
+
   const onCheck = (str: string) => () => {
     if (!detail.value) return;
 
     setCheck({ ...check, [str]: !check[str] });
-    setSum(check[str] ? sum - detail.value.pay[str] : sum + detail.value.pay[str]);
+    setSum(check[str] ? +(sum - detail.value.pay[str]).toFixed(2) : +(sum + detail.value.pay[str]).toFixed(2));
   };
 
   const onAllCheck = () => {
@@ -42,14 +47,19 @@ const AreaDetailForm = () => {
       e4: true,
     };
     setCheck(temp);
-    setSum(detail.value.pay.e2 + detail.value.pay.e3 + detail.value.pay.e4);
+    setSum(+(detail.value.pay.e2 + detail.value.pay.e3 + detail.value.pay.e4).toFixed(2));
   };
 
   const onBuy = () => {
     if (!detail.value || !detail.turn) return;
 
+    if (sum + detail.value?.pay.e1 > player.point) {
+      alert('보유현금이 부족합니다.');
+      return;
+    }
+
     dispatch(areaUpdate(detail.value.key, detail.turn, true, check.e2, check.e3, check.e4));
-    dispatch(playerPointUpdate(detail.turn, sum));
+    dispatch(playerPointUpdate(detail.turn, detail.value.pay.e1 + sum));
     dispatch(areaOneClose());
   };
 

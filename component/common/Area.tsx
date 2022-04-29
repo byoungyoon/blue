@@ -1,19 +1,55 @@
 import styled from 'styled-components';
-import { AreaDetailType } from '../../types/Area.type';
+import { AreaDetailType, AreaStateType } from '../../types/Area.type';
 import KeyIcon from '@mui/icons-material/Key';
 import { AreaTypeConstants } from '../../constants/Area.constants';
 import { yellow } from '@mui/material/colors';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../util/store';
+
+import E2 from '@mui/icons-material/Bungalow';
+import E3 from '@mui/icons-material/Synagogue';
+import E4 from '@mui/icons-material/Mosque';
+import { useEffect, useState } from 'react';
 
 interface AreaProps {
   AreaData: AreaDetailType;
 }
 
 const Area = ({ AreaData }: AreaProps) => {
-  const onNameBr = () => {};
+  const player = useSelector(({ PlayerReducer }: RootState) => PlayerReducer);
+  const area = useSelector(({ AreaReducer }: RootState) => AreaReducer);
+
+  const [detail, setDetail] = useState<AreaStateType>();
+
+  useEffect(() => {
+    setDetail(area.filter((key) => key.key === AreaData.key)[0]);
+  }, [area]);
+
+  const onHeaderColor = () => {
+    if (!detail || detail.player === 0) return;
+
+    return player[`player${detail.player}`].color;
+  };
 
   return (
     <Container type={AreaData.type}>
-      <Header></Header>
+      <Header color={onHeaderColor()}>
+        {detail && detail.possession.e2 && (
+          <div className="e2">
+            <E2 sx={{ fontSize: 14, color: 'white' }} />
+          </div>
+        )}
+        {detail && detail.possession.e3 && (
+          <div className="e3">
+            <E3 sx={{ fontSize: 13, color: 'white' }} />
+          </div>
+        )}
+        {detail && detail.possession.e4 && (
+          <div className="e4">
+            <E4 sx={{ fontSize: 13, color: 'white' }} />
+          </div>
+        )}
+      </Header>
       <Title>
         {AreaData.type !== AreaTypeConstants.CARD ? AreaData.name : <KeyIcon sx={{ color: yellow[800] }} />}
       </Title>
@@ -50,11 +86,24 @@ const Container = styled.div<{ type: string }>`
   align-items: center;
 `;
 
-const Header = styled.div`
+const Header = styled.div<{ color?: string }>`
   width: 100%;
   height: 30%;
 
-  /* border-bottom: 1px solid white; */
+  background-color: ${(props) => props.color};
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  & > div {
+    width: 30%;
+    height: 90%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const Title = styled.div`

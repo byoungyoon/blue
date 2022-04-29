@@ -18,11 +18,11 @@ export const playerInsert = (values: PlayerType, index: string) => ({
     index: index,
   },
 });
-export const playerPointUpdate = (player: number, point: number) => ({
+export const playerPointUpdate = (player: number, sum: number) => ({
   type: PLAYER_POINT_UPDATE,
   payload: {
     player: player,
-    point: point,
+    sum: sum,
   },
 });
 
@@ -77,7 +77,7 @@ const PlayerReducer = (state: PlayerIndexType = initState, action: PlayerAction)
         ...state,
         [`player${action.payload.player}`]: {
           ...state[`player${action.payload.player}`],
-          point: action.payload.point,
+          point: +(state[`player${action.payload.player}`].point - action.payload.sum).toFixed(2),
         },
       };
     default:

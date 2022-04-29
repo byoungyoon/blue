@@ -57,7 +57,7 @@ export const AreaENameConstants = {
   CAIRO: `Cairo`,
   ISTANBUL: `Istanbul`,
   ATHENS: 'Athens',
-  COPENHAGEN: 'Copenagen',
+  COPENHAGEN: 'Copenhagen',
   STOCKHOLM: 'Stockholm',
   CONCORDE: 'Cokcorde Airliner',
   BERNE: 'Berne',
