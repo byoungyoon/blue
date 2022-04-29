@@ -4,12 +4,12 @@ import { Box, Container } from '../../styles/AreaDetailStyle';
 import LensIcon from '@mui/icons-material/Lens';
 import { IMAGE_PATH } from '../../constants/Area.constants';
 import Button from '@mui/material/Button';
-import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useState } from 'react';
 import { areaOneClose } from '../../util/store/AreaOne.reducer';
 import { useDispatch } from 'react-redux';
 import { areaReset } from '../../util/store/Area.reducer';
 import { playerGameOver, playerTransfer } from '../../util/store/Player.reducer';
+import CheckIcon from '@mui/icons-material/Check';
 
 interface PayProps {
   detail: AreaStateType;
@@ -101,8 +101,8 @@ const Pay = ({ detail, player }: PayProps) => {
           </div>
         </div>
         <div className="bottom">
-          <Button variant="contained" color={'error'} startIcon={<CloseIcon />} onClick={onClose}>
-            취소
+          <Button variant="contained" color={'success'} startIcon={<CheckIcon />} onClick={onClose}>
+            확인
           </Button>
         </div>
       </Box>

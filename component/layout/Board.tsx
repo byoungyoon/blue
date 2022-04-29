@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import Dice from '../common/Dice';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import AreaForm from './AreaForm';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import TokenForm from './TokenForm';
+import { RootState } from '../../util/store';
 
 const Board = () => {
   const [roll, setRoll] = useState(0);
-  const dispatch = useDispatch();
+  const dice = useSelector(({ DiceReducer }: RootState) => DiceReducer.roll);
 
-  const onRoll = () => {
+  const onRoll = useCallback(() => {
     setRoll(roll + 1);
-  };
+  }, [dice]);
 
   return (
     <Container>
